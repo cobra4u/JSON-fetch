@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JSON DATA</title>
+<style type="text/css">
+    body{
+        font-family:'Noto Sans', sans-serif;
+    }
+    </style>
+</head>
+<body>
+
+     <h1>JSON DATA</h1>
+    <p id="data"></p>
+     
+
+</body>
+<script>
+    let dat= fetch("./data.json")
+    .then(results => results.json())
+    .then(console.log);
+</script>
+<script type ="text/javascript">
+        fetch('./data.json')
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data){
+            for (var i =0;i<data.length; i++){
+                document.getElementById("data").innerHTML += 
+                data[i].id + "=>" + data[i].firstName + " " + data[i].lastName + "<br/>";                
+            }
+        })
+        .catch(function(err){
+            console.log(err);
+        });
+
+</script>
+</html>
